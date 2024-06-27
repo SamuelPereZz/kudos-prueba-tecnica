@@ -1,0 +1,29 @@
+.container {
+  background-color: #ffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3.2rem;
+  border-radius: 5px;
+  
+}
+
+.border-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: dashed;
+  border-radius: 8px;
+  min-height: 600px;
+  padding: 2rem;
+  gap: 1rem;
+  box-shadow: 0 20px 10px rgba(0,0,0,.6);
+
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+}

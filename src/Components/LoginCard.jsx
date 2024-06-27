@@ -1,41 +1,32 @@
+import { useNavigate } from 'react-router-dom'; 
+import '../Components/LoginCard.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../Pages/Login.css';
 
-function Login() {
+function LoginCard() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await fetch('http://localhost:5000/login'); //Iniciar db con => 'json-server --watch db.json --port 5000'
+      const response = await fetch('http://localhost:5000/login'); // json-server --watch db.json --port 5000
       const data = await response.json();
-
-      if (!data.ok) {
-        setError('We cannot authenticate at this time, please try again later');
-        return;
-      }
-
-      const { email: dbEmail, token } = data.data;
-
-      if (email === dbEmail && password === 'supersecret') {
-        localStorage.setItem('token', token);
-        navigate('/upload');
-      } else if (email === dbEmail) {
-        setError('Incorrect password');
+      if (data.ok) {
+        const { email: dbEmail, token } = data.data;
+        if (email === dbEmail && password === 'supersecret') {
+          localStorage.setItem('token', token);
+          navigate('/Upload');
+        } else {
+          setError('Credenciales inválidas');
+        }
       } else {
-        setError('Invalid credentials');
+        setError('Hubo un problema con la autenticación');
       }
     } catch (error) {
       console.error('Error de autenticación:', error);
-      setError('There was a problem with authentication');
+      setError('Hubo un problema con la autenticación');
     }
   };
 
@@ -49,7 +40,7 @@ function Login() {
             type='text'
             placeholder=' '
             value={email}
-            onChange={handleEmailChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label>Email</label>
         </div>
@@ -60,7 +51,7 @@ function Login() {
             type='password'
             placeholder=' '
             value={password}
-            onChange={handlePasswordChange}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <label>Password</label>
         </div>
@@ -74,7 +65,7 @@ function Login() {
         </button>
       </form>
       <p>
-        Don&apos;t have an account?{' '}
+        Don&apos;t have an account? {' '}
         <a href='' className='a2'>
           Sign up!
         </a>
@@ -83,4 +74,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginCard;
