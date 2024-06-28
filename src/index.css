@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
-
 :root {
   --light-clr: rgb(254, 254, 254);
   --primary-clr: rgb(103, 63, 215);
   --transparent-primary-clr: rgba(103, 63, 215, 0.4);
+  --bg-image: url('https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4299a354-68bc-4422-ba08-97b40af9c112');
 }
 
 * {
@@ -17,8 +17,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url(https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4299a354-68bc-4422-ba08-97b40af9c112);
+  background-image: var(--bg-image);
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed; /* Esto ayuda a evitar que la imagen se vuelva a cargar al hacer scroll */
 }
-

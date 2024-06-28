@@ -10,9 +10,10 @@
   font-weight: bold;
   font-size: 24px;
 }
-.file-upload-form span {
+.filename {
   color: #636363;
 }
+
 .file-upload-label input {
   display: none;
 }
