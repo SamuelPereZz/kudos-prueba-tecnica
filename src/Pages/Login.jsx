@@ -41,6 +41,7 @@ function Login() {
 
   return (
     <div className='login-box'>
+      <p className='title'>DATA LOADING SYSTEM</p>
       <form onSubmit={handleSubmit}>
         <div className='user-box'>
           <input
