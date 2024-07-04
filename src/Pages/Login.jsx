@@ -74,12 +74,7 @@ function Login() {
           Login
         </button>
       </form>
-      <p>
-        Don&apos;t have an account?{' '}
-        <a href='' className='a2'>
-          Sign up!
-        </a>
-      </p>
+
     </div>
   );
 }

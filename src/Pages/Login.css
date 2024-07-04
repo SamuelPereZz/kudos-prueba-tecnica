@@ -164,16 +164,6 @@
   font-size: 14px;
 }
 
-.login-box a.a2 {
-  color: #fff;
-  text-decoration: none;
-}
-
-.login-box a.a2:hover {
-  background: transparent;
-  color: #aaa;
-  border-radius: 5px;
-}
 
 .error-message {
   color: rgb(194, 34, 34);
