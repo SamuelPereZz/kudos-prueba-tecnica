@@ -86,3 +86,9 @@ Para instalar y ejecutar `kudos-prueba-tecnica` en tu máquina local, sigue esto
 ```shell
 npm run dev
 ```
+
+4. ## **Iniciar el Servidor Local**: En una terminal separada, inicia el servidor JSON local
+   
+  ```shell
+   json-server --watch db.json --port 5000
+  ```
