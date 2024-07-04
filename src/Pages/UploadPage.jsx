@@ -1,13 +1,14 @@
 import './UploadPage.css';
 import { useState } from 'react';
-import Botton1 from '../Components/Button'; 
+import Botton1 from '../Components/Button';
 import ViewingResults from '../Components/ViewingResults';
 import { TiCloudStorage } from 'react-icons/ti';
 import { MdCloudDone } from 'react-icons/md';
+import styled from '@emotion/styled';
 
 function UploadPage() {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [showResults, setShowResults] = useState(false); 
+  const [showResults, setShowResults] = useState(false);
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -15,7 +16,7 @@ function UploadPage() {
 
   const handleClick = (event) => {
     event.preventDefault();
-    setShowResults(true); 
+    setShowResults(true);
   };
 
   return (
@@ -26,7 +27,7 @@ function UploadPage() {
             <div className='file-upload-design'>
               {selectedFile ? (
                 <>
-                  <MdCloudDone />
+                  <IconSuccess />
                   <Botton1 onClick={handleClick}>Upload File</Botton1>
                 </>
               ) : (
@@ -52,3 +53,7 @@ function UploadPage() {
 }
 
 export default UploadPage;
+
+const IconSuccess = styled(MdCloudDone)`
+  color: green;
+`;
